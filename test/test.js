@@ -10,12 +10,13 @@ describe('backtick', function() {
   };
 
   it('generate from template files', function() {
-    backtick('./test/template/**/*', './test/dist/', data);
-    const template = fs.readFileSync('./test/dist/template.txt', 'utf8');
-    assert(template === `Fifteen is 15 and
+    return backtick('./test/template/**/*', './test/dist/', data).then(() => {
+      const template = fs.readFileSync('./test/dist/template.txt', 'utf8');
+      assert(template === `Fifteen is 15 and
 not 20.`);
-    const template2 = fs.readFileSync('./test/dist/dir/template2.txt', 'utf8');
-    assert(template2 === `Fifteen is 15 and
+      const template2 = fs.readFileSync('./test/dist/dir/template2.txt', 'utf8');
+      assert(template2 === `Fifteen is 15 and
 not 30.`);
+    });
   });
 });
