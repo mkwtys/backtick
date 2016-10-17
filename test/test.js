@@ -1,13 +1,18 @@
 'use strict';
 const assert = require('power-assert');
-const fs = require('fs');
 const backtick = require('../lib/');
+const fs = require('fs');
+const mkdirp = require('mkdirp');
 
 describe('backtick', function() {
   const data = {
     a: 5,
     b: 10
   };
+
+  before(function() {
+    mkdirp('./test/dist/');
+  });
 
   it('generate from template files', function() {
     return backtick('./test/template/**/*', './test/dist/', data).then(() => {
