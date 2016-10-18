@@ -2,29 +2,29 @@
 const assert = require('power-assert');
 const backtick = require('../lib/');
 const fs = require('fs');
-const mkdirp = require('mkdirp');
+const glob = require('glob');
+const path = require('path');
 
-describe('backtick', function() {
+const fixtureTest = (fixtureName, ext) => {
   const data = {
     a: 5,
     b: 10
   };
 
-  before(function() {
-    mkdirp('./test/dist/');
-  });
-
-  it('generate from template files', function() {
-    return backtick('./test/template/**/*', './test/dist/', data).then(() => {
-      const template = fs.readFileSync('./test/dist/template.txt', 'utf8');
-      assert(template === `Fifteen is 15 and
-not 20.`);
-    const template2 = fs.readFileSync('./test/dist/template2.txt', 'utf8');
-    assert(template2 === `Fifteen is 15 and
-not 30.`);
-      const dirTemplate = fs.readFileSync('./test/dist/dir/template.txt', 'utf8');
-      assert(dirTemplate === `Fifteen is 15 and
-not 40.`);
+  it(fixtureName, function() {
+    return backtick(`./test/fixtures/${fixtureName}/**/fixture.${ext}`, './test/fixtures/dist/', data, {
+      base: `./test/fixtures/`
+    }).then((values) => {
+      const expected = fs.readFileSync(path.resolve(glob.sync(`./test/fixtures/${fixtureName}/**/expected.${ext}`).join('')), 'utf8');
+      const dist = fs.readFileSync(path.resolve(glob.sync(`./test/fixtures/dist/${fixtureName}/**/fixture.${ext}`).join('')), 'utf8');
+      assert(values[0] === expected);
+      assert(dist);
     });
   });
+};
+
+describe('fixtures', function() {
+  fixtureTest('template-literal', 'txt');
+  fixtureTest('no-wrap', 'txt');
+  fixtureTest('directory', 'txt');
 });
