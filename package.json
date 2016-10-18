@@ -9,7 +9,8 @@
   "dependencies": {
     "glob": "7.1.1",
     "glob2base": "0.0.12",
-    "mkdirp": "0.5.1"
+    "mkdirp": "0.5.1",
+    "rimraf": "2.5.4"
   },
   "devDependencies": {
     "intelli-espower-loader": "1.0.1",
@@ -35,7 +36,9 @@
     "url": "git+https://github.com/mkwtys/backtick.git"
   },
   "scripts": {
+    "clean": "rimraf ./test/fixtures/dist",
     "cover": "npm t && nyc report --reporter=lcov --reporter=text",
+    "pretest": "npm run clean",
     "test": "nyc -s mocha 'test/**/*.js' --timeout 10000 --require intelli-espower-loader"
   }
 }
