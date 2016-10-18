@@ -19,9 +19,12 @@ describe('backtick', function() {
       const template = fs.readFileSync('./test/dist/template.txt', 'utf8');
       assert(template === `Fifteen is 15 and
 not 20.`);
-      const template2 = fs.readFileSync('./test/dist/dir/template2.txt', 'utf8');
-      assert(template2 === `Fifteen is 15 and
+    const template2 = fs.readFileSync('./test/dist/template2.txt', 'utf8');
+    assert(template2 === `Fifteen is 15 and
 not 30.`);
+      const dirTemplate = fs.readFileSync('./test/dist/dir/template.txt', 'utf8');
+      assert(dirTemplate === `Fifteen is 15 and
+not 40.`);
     });
   });
 });
