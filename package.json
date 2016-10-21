@@ -3,6 +3,9 @@
   "description": "template literal based template engine",
   "version": "0.3.1",
   "author": "mkwtys <mkwtys@gmail.com>",
+  "bin": {
+    "backtick": "bin/backtick.js"
+  },
   "bugs": {
     "url": "https://github.com/mkwtys/backtick/issues"
   },
@@ -22,6 +25,7 @@
     "test": "test"
   },
   "files": [
+    "bin",
     "lib"
   ],
   "homepage": "https://github.com/mkwtys/backtick#readme",
