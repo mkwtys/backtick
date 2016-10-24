@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 'use strict';
 const backtick = require('../lib');
+const globAll = require('glob-all');
 const minimist = require('minimist');
 const pkg = require('../package.json');
 
@@ -9,8 +10,16 @@ const argv = minimist(process.argv.slice(2), {
     'help',
     'version'
   ],
+  string: [
+    'base',
+    'data',
+    'out-dir'
+  ],
   alias: {
+    b: 'base',
+    d: 'data',
     h: 'help',
+    o: 'out-dir',
     v: 'version'
   },
   default: {
@@ -20,7 +29,7 @@ const argv = minimist(process.argv.slice(2), {
 });
 
 function main() {
-  // backtick();
+  backtick(globAll.sync(argv._), argv.o, JSON.parse(argv.d), {base: argv.b});
 }
 
 function showHelp() {
@@ -28,11 +37,14 @@ function showHelp() {
 ${pkg.description}
 
 Usage
-  ${Object.keys(pkg.bin)[0]} [options]
+  ${Object.keys(pkg.bin)[0]} <source> [options]
 
 Options
-  -h, --help             show help
-  -v, --version          print version
+  -b, --base       base directory
+  -d, --data       data
+  -h, --help       show help
+  -o, --out-dir    output directory
+  -v, --version    print version
 `
   );
 }

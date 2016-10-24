@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "glob": "7.1.1",
+    "glob-all": "3.1.0",
     "glob2base": "0.0.12",
     "mkdirp": "0.5.1",
     "rimraf": "2.5.4"
