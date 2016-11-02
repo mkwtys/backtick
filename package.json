@@ -27,7 +27,9 @@
   "homepage": "https://github.com/mkwtys/backtick#readme",
   "keywords": [
     "engine",
-    "template"
+    "template",
+    "literal",
+    "string"
   ],
   "license": "MIT",
   "main": "lib/index.js",
