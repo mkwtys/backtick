@@ -24,7 +24,7 @@
   "files": [
     "lib"
   ],
-  "homepage": "https://github.com/mkwtys/backtick#readme",
+  "homepage": "https://github.com/mkwtys/backtick",
   "keywords": [
     "engine",
     "template",
@@ -35,7 +35,7 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mkwtys/backtick.git"
+    "url": "https://github.com/mkwtys/backtick.git"
   },
   "scripts": {
     "clean": "rimraf ./test/fixtures/dist",
