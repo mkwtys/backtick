@@ -1,10 +1,9 @@
 sudo: false
 language: node_js
 node_js:
-  - "6"
-  - "8"
   - "10"
-  - "11"
+  - "12"
+  - "14"
 dist: trusty
 before_script: npm i codecov
 after_success: nyc report --reporter=lcov > coverage.lcov && codecov
