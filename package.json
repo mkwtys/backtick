@@ -9,7 +9,7 @@
   "dependencies": {
     "glob": "8.0.3",
     "glob2base": "0.0.12",
-    "mkdirp": "1.0.4"
+    "mkdirp": "2.1.6"
   },
   "devDependencies": {
     "intelli-espower-loader": "1.1.0",
