@@ -7,7 +7,7 @@
     "url": "https://github.com/mkwtys/backtick/issues"
   },
   "dependencies": {
-    "glob": "10.4.1",
+    "glob": "10.4.2",
     "glob2base": "0.0.12",
     "mkdirp": "3.0.1"
   },
