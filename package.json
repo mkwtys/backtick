@@ -14,7 +14,7 @@
     "intelli-espower-loader": "1.1.0",
     "mocha": "10.8.2",
     "nyc": "17.0.0",
-    "rimraf": "5.0.10"
+    "rimraf": "6.0.1"
   },
   "directories": {
     "test": "test"
