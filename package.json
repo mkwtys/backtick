@@ -11,7 +11,7 @@
     "mkdirp": "3.0.1"
   },
   "devDependencies": {
-    "intelli-espower-loader": "1.1.0",
+    "glob-parent": "6.0.2",
     "mocha": "10.8.2",
     "nyc": "17.0.0",
     "rimraf": "5.0.10"
@@ -35,10 +35,11 @@
     "type": "git",
     "url": "https://github.com/mkwtys/backtick.git"
   },
+  "workspaces": ["./"],
   "scripts": {
     "clean": "rimraf ./test/fixtures/dist",
     "cover": "npm t && nyc report --reporter=lcov --reporter=text",
     "pretest": "npm run clean",
-    "test": "nyc -s mocha 'test/**/*.js' --timeout 10000 --require intelli-espower-loader"
+    "test": "nyc -s mocha 'test/**/*.js' --timeout 10000"
   }
 }
