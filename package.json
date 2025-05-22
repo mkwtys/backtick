@@ -13,7 +13,7 @@
   "devDependencies": {
     "intelli-espower-loader": "1.1.0",
     "mocha": "10.8.2",
-    "nyc": "17.0.0",
+    "nyc": "17.1.0",
     "rimraf": "6.0.1"
   },
   "directories": {
