@@ -40,6 +40,6 @@
     "clean": "rimraf ./test/fixtures/dist",
     "cover": "npm t && nyc report --reporter=lcov --reporter=text",
     "pretest": "npm run clean",
-    "test": "nyc -s mocha 'test/**/*.js' --timeout 10000"
+    "test": "nyc -s mocha"
   }
 }
