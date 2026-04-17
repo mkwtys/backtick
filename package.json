@@ -11,10 +11,10 @@
     "mkdirp": "3.0.1"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "4.1.4",
     "glob-parent": "6.0.2",
-    "mocha": "11.7.5",
-    "nyc": "18.0.0",
-    "rimraf": "6.1.3"
+    "rimraf": "6.1.3",
+    "vitest": "4.1.4"
   },
   "directories": {
     "test": "test"
@@ -35,11 +35,13 @@
     "type": "git",
     "url": "https://github.com/mkwtys/backtick.git"
   },
-  "workspaces": ["./"],
+  "workspaces": [
+    "./"
+  ],
   "scripts": {
     "clean": "rimraf ./test/fixtures/dist",
-    "cover": "npm t && nyc report --reporter=lcov --reporter=text",
     "pretest": "npm run clean",
-    "test": "nyc -s mocha"
+    "test": "vitest run",
+    "cover": "vitest run --coverage"
   }
 }

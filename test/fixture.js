@@ -1,8 +1,8 @@
-const assert = require("assert");
-const backtick = require("../lib/");
-const fs = require("fs");
-const glob = require("glob");
-const path = require("path");
+import { describe, it, expect } from "vitest";
+import backtick from "../lib/index.js";
+import fs from "fs";
+import { globSync } from "glob";
+import path from "path";
 
 const fixtureTest = (fixtureName, ext) => {
   const data = {
@@ -21,19 +21,17 @@ const fixtureTest = (fixtureName, ext) => {
     ).then(() => {
       const actual = fs.readFileSync(
         path.resolve(
-          glob
-            .sync(`test/fixtures/dist/${fixtureName}/**/fixture.${ext}`)
-            .join("")
+          globSync(`test/fixtures/dist/${fixtureName}/**/fixture.${ext}`).join("")
         ),
         "utf8"
       );
       const expected = fs.readFileSync(
         path.resolve(
-          glob.sync(`test/fixtures/${fixtureName}/**/expected.${ext}`).join("")
+          globSync(`test/fixtures/${fixtureName}/**/expected.${ext}`).join("")
         ),
         "utf8"
       );
-      assert(actual === expected);
+      expect(actual).toBe(expected);
     });
   });
 };
